@@ -11,7 +11,6 @@ class AnimeAsyncNotifier extends StateNotifier<AsyncValue<List<Media>>> {
   List<Media> media = [];
 
   Future<void> getData(int page) async {
-    print(page);
     state = const AsyncLoading();
     try {
       Anime response = await graphQlProvider.getAnime(page);
@@ -45,16 +44,16 @@ class AnimeAsyncNotifier extends StateNotifier<AsyncValue<List<Media>>> {
     List<Media> searchedData = [];
     state = const AsyncLoading();
     searchedData.clear();
-    media.forEach((element) {
+    for (var element in media) {
       if (element.title!.english == null) {
-        return;
+        continue;
       }
       if (element.title!.english!
           .toLowerCase()
           .contains(filterString.toLowerCase())) {
         searchedData.add(element);
       }
-    });
+    }
     state = AsyncData(searchedData);
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:take_home_exam/layout/custom_app_bar.dart';
+import 'package:take_home_exam/custom_widget/custom_app_bar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../model/anime_model.dart';
@@ -19,8 +19,6 @@ class AnimeDetailScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(media.title?.english);
-    print(media.bannerImage);
     return Scaffold(
       appBar: customAppBar(
           media.title?.english ?? "", media.bannerImage ?? "", context),

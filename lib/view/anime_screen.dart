@@ -43,7 +43,6 @@ class _AnimeScreenState extends ConsumerState<AnimeScreen> {
     if (_controller.position.atEdge) {
       bool isBottom = _controller.position.pixels != 0;
       if (isBottom) {
-        print('At the bottom');
         ref.read(animeAsyncNotifier.notifier).fetchNextPage(page);
       }
     }
